@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0d1011">
+  <title>Live Stage | JKT48HUB</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/live-stage.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/hls.js@1.5.17/dist/hls.min.js"></script>
+  <script defer src="/live-stage.js"></script>
+</head>
+<body>
+  <main class="stage-page">
+    <section id="accessGate" class="access-gate">
+      <div class="gate-card"><span class="gate-mark">48</span><span class="eyebrow">LIVE STAGE ACCESS</span><h1>Masuk ke <span>Live Stage.</span></h1><p>Masukkan email yang telah didaftarkan oleh admin untuk menyaksikan siaran.</p><form id="accessForm"><label>Email terdaftar<input id="accessEmail" type="email" autocomplete="email" required placeholder="nama@email.com"></label><button type="submit">Lanjut ke Live Stage <span>→</span></button><p id="accessError" role="alert"></p></form><a href="/">← Kembali ke beranda</a></div>
+    </section>
+    <section id="stageApp" class="stage-shell hidden">
+      <div class="stage-grid"><div class="stage-main"><div id="videoHost" class="video-host"><div class="stage-loading">Memuat Live Stage...</div></div><div class="server-row"><button class="stage-server active" data-server="main">▣ Server 1 <small>(Utama)</small></button><button class="stage-server" data-server="idn">▣ Server IDN <small>(IDN Live)</small></button></div><div id="qualityMenu" class="quality-menu hidden"></div><article class="show-info"><div id="showPoster" class="show-poster">48</div><div><span id="showType" class="show-type">LIVE SHOW</span><h1 id="showTitle">Live Stage</h1><p id="showSummary">Nikmati momen spesial bersama JKT48HUB.</p><div class="show-meta"><span id="showCategory"></span><span id="showDate"></span></div></div></article></div><aside class="stage-side"><div class="stage-tabs"><button class="stage-tab active" data-tab="chat">Live Chat</button><button class="stage-tab" data-tab="lineup">Lineup</button><a href="/" aria-label="Tutup Live Stage">×</a></div><div class="stage-panel" data-panel="chat"><div class="empty-panel"><b>●</b><strong>Live chat belum tersedia.</strong><p>Ikuti percakapan dan dukung oshimu di sini.</p></div></div><div class="stage-panel hidden" data-panel="lineup"><div class="empty-panel"><b>♟</b><strong id="lineupText">Lineup belum tersedia.</strong><p>Informasi member akan diperbarui oleh admin.</p></div></div></aside></div>
+    </section>
+  </main>
+</body>
+</html>

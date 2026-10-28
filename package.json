@@ -1,0 +1,12 @@
+{
+  "name": "jkt48hub-rebuild",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Fan-made JKT48 live, schedule, replay and news hub with admin panel",
+  "type": "module",
+  "scripts": {
+    "start": "node server.mjs",
+    "dev": "node --watch server.mjs"
+  },
+  "engines": { "node": ">=20" }
+}

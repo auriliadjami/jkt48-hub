@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#151013">
+  <meta name="description" content="JKT48HUB — hub fan-made untuk live, jadwal theater, replay, dan kabar JKT48.">
+  <title>JKT48HUB | Live & Replay</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/hls.js@1.5.17/dist/hls.min.js"></script>
+  <script defer src="/app.js"></script>
+</head>
+<body>
+  <div class="page-glow"></div>
+  <div id="announcementBar" class="announcement-bar hidden"><span class="announcement-dot"></span><span id="announcementText"></span></div>
+  <header class="site-header">
+    <a href="#home" class="brand" aria-label="JKT48HUB beranda">
+      <span class="brand-mark"><span>48</span></span>
+      <span class="brand-copy"><strong id="brandName">JKT48HUB</strong><small id="brandTagline">YOUR IDOL. YOUR MOMENTS.</small></span>
+    </a>
+    <nav class="main-nav" id="mainNav">
+      <a class="active" href="#home">Beranda</a><a href="#live">Live & Jadwal</a><a href="#replay">Replay</a><a href="#news">Berita</a>
+    </nav>
+    <div class="header-actions"><span class="independent-tag"><i></i> FAN-MADE HUB</span><a class="admin-link" href="/admin"><span class="admin-icon">↗</span> Admin</a><button id="menuToggle" class="menu-toggle" aria-label="Buka menu">☰</button></div>
+  </header>
+
+  <main>
+    <section class="hero container" id="home">
+      <div class="hero-copy">
+        <div class="eyebrow"><span class="eyebrow-line"></span> A LITTLE HUB FOR BIG MOMENTS</div>
+        <h1 id="heroTitle">Semua momen JKT48,<br><span>dalam satu hub.</span></h1>
+        <p id="heroText">Temukan update live, jadwal theater, replay, dan kabar terbaru seputar JKT48 di satu tempat.</p>
+        <div class="hero-actions"><a class="button button-primary" href="#live">Jelajahi show <span>↗</span></a><a class="button button-quiet" href="#news">Lihat update <span>↓</span></a></div>
+        <div class="hero-footnote"><span class="status-pulse"></span> Update komunitas dalam satu ruang <span class="foot-sep">/</span> Dibuat oleh fans</div>
+      </div>
+      <div class="hero-art" aria-label="Ilustrasi panggung abstrak">
+        <div class="art-orbit orbit-one"></div><div class="art-orbit orbit-two"></div><div class="art-glow"></div>
+        <div class="art-stage"><div class="stage-topline">THE STAGE IS YOURS</div><div class="stage-big">JKT<span>48</span></div><div class="stage-caption">LIVE · THEATER · REPLAY</div><div class="stage-lights"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
+        <div class="art-sticker sticker-live"><span class="live-dot"></span> LIVE / ON AIR</div><div class="art-sticker sticker-label">FAN PROJECT <b>✳</b></div>
+        <div class="art-star star-a">✳</div><div class="art-star star-b">✦</div><div class="art-star star-c">✧</div>
+        <div class="art-grid"></div>
+      </div>
+      <div class="hero-bottom-line"><span>01 <b>—</b> STAY CONNECTED</span><span>SCROLL TO EXPLORE <b>↓</b></span></div>
+    </section>
+
+    <section class="container quick-stats" aria-label="Ringkasan konten">
+      <div class="stat-card"><div class="stat-icon icon-red">◉</div><div><span class="stat-label">LIVE SEKARANG</span><strong id="liveCount">00</strong></div><span class="stat-arrow">↗</span></div>
+      <div class="stat-card"><div class="stat-icon icon-gold">▦</div><div><span class="stat-label">JADWAL MENDATANG</span><strong id="upcomingCount">00</strong></div><span class="stat-arrow">↗</span></div>
+      <div class="stat-card"><div class="stat-icon icon-purple">▷</div><div><span class="stat-label">ARSIP REPLAY</span><strong id="replayCount">00</strong></div><span class="stat-arrow">↗</span></div>
+      <div class="stat-card stat-note"><span class="stat-note-mark">✳</span><div><strong>All about your oshi.</strong><span>Semua update favoritmu di sini.</span></div></div>
+    </section>
+
+    <section class="container content-section" id="live">
+      <div class="section-heading"><div><div class="eyebrow"><span class="eyebrow-line"></span> CATCH THE MOMENT</div><h2>Live & <span>Upcoming</span></h2><p>Jangan sampai ketinggalan momen berikutnya.</p></div><a class="text-link" href="#schedule">Lihat jadwal <span>↗</span></a></div>
+      <div class="section-tabs" role="tablist"><button class="filter-tab active" data-show-filter="all">Semua</button><button class="filter-tab" data-show-filter="live">Sedang live <span class="tiny-live"></span></button><button class="filter-tab" data-show-filter="upcoming">Akan datang</button></div>
+      <div id="liveGrid" class="show-grid"></div>
+      <div id="liveEmpty" class="empty-state hidden"><div class="empty-symbol">◌</div><h3>Belum ada show untuk ditampilkan</h3><p>Jadwal dan tautan stream akan muncul di sini setelah admin menambahkannya.</p><a href="/admin" class="text-link">Buka panel admin ↗</a></div>
+    </section>
+
+    <section class="container replay-section content-section" id="replay">
+      <div class="section-heading"><div><div class="eyebrow"><span class="eyebrow-line"></span> SAVE THE MEMORIES</div><h2>Replay <span>Library</span></h2><p>Putar kembali show yang ingin kamu kenang.</p></div><div class="replay-tools"><label class="search-box"><span>⌕</span><input id="replaySearch" type="search" placeholder="Cari show atau member…" aria-label="Cari replay"></label></div></div>
+      <div id="replayGrid" class="replay-grid"></div>
+      <div id="replayEmpty" class="empty-state compact hidden"><div class="empty-symbol">▷</div><h3>Arsip replay masih kosong</h3><p>Replay yang dipublikasikan admin akan tersimpan di bagian ini.</p></div>
+    </section>
+
+    <section class="container schedule-section content-section" id="schedule">
+      <div class="section-heading"><div><div class="eyebrow"><span class="eyebrow-line"></span> MARK YOUR CALENDAR</div><h2>What's <span>Coming Up?</span></h2><p>Catat tanggalnya. Sampai jumpa di show!</p></div></div>
+      <div class="schedule-panel"><div class="schedule-panel-head"><div><span class="panel-kicker">UP NEXT</span><h3>Jadwal pertunjukan</h3></div><span class="calendar-chip">◷ LOCAL TIME / WIB</span></div><div id="scheduleList" class="schedule-list"></div><div id="scheduleEmpty" class="schedule-empty hidden">Belum ada jadwal yang dipublikasikan.</div></div>
+    </section>
+
+    <section class="container news-section content-section" id="news">
+      <div class="section-heading"><div><div class="eyebrow"><span class="eyebrow-line"></span> FROM THE HUB</div><h2>Latest <span>Updates</span></h2><p>Informasi dan kabar terbaru untuk para fans.</p></div></div>
+      <div id="newsGrid" class="news-grid"></div>
+      <div id="newsEmpty" class="empty-state compact hidden"><div class="empty-symbol">✳</div><h3>Belum ada berita terbaru</h3><p>Pengumuman dari admin akan muncul di sini.</p></div>
+    </section>
+
+    <section class="container community-banner"><div class="community-pattern">✳　✦　✧　✳　✦</div><div><div class="eyebrow"><span class="eyebrow-line"></span> MADE WITH OSHI ENERGY</div><h2>One hub.<br><span>Countless memories.</span></h2><p>Tempat kecil untuk menyimpan momen-momen besar bersama JKT48.</p></div><a href="#home" class="round-arrow" aria-label="Kembali ke atas">↑</a><div class="banner-outline">48</div></section>
+  </main>
+
+  <footer class="site-footer"><div class="container footer-inner"><a href="#home" class="brand footer-brand"><span class="brand-mark"><span>48</span></span><span class="brand-copy"><strong id="footerBrandName">JKT48HUB</strong><small id="footerTagline">YOUR IDOL. YOUR MOMENTS.</small></span></a><p id="footerText">Dibuat oleh fans, untuk fans. Tidak berafiliasi dengan JKT48 atau pihak manajemen resmi.</p><div class="footer-links"><a href="/admin">Admin ↗</a><a href="#home">Kembali ke atas ↑</a></div></div><div class="container footer-bottom"><span>© <span id="yearNow">2026</span> JKT48HUB</span><span>INDEPENDENT FAN PROJECT <span class="footer-heart">♥</span> NOT OFFICIAL</span></div></footer>
+
+  <div id="playerModal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="playerTitle"><div class="modal-backdrop" data-close-modal></div><div class="modal-dialog"><div class="modal-head"><div><span class="panel-kicker" id="playerType">NOW PLAYING</span><h3 id="playerTitle">Show title</h3></div><button class="icon-button" data-close-modal aria-label="Tutup">✕</button></div><div id="playerStage" class="player-stage"><div class="player-placeholder">Pilih show untuk mulai menonton.</div></div><div class="modal-meta"><span id="playerMembers"></span><span id="playerDate"></span></div><p class="player-disclaimer">Pastikan kamu hanya menggunakan stream yang kamu miliki atau memiliki izin untuk ditayangkan.</p></div></div>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
